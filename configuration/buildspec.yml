@@ -1,1 +1,20 @@
 
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo Installing Maven on Ubuntu...
+      - apt-get update
+      - apt-get install -y maven
+      - mvn -version
+  build:
+    commands:
+      - echo Building the Maven project...
+      - mvn clean package
+
+artifacts:
+  files:
+    - target/*.jar
